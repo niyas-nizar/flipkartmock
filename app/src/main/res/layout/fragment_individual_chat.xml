@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@color/white"
+    android:layout_height="match_parent"
+    tools:context=".ui.IndividualChatFragment">
+
+    <ImageView
+        android:id="@+id/profile_picture_iv"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="12dp"
+        android:contentDescription="Chat Display Picture"
+        app:layout_constraintBottom_toBottomOf="@+id/title_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title_tv" />
+
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/profile_picture_iv"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/empty_message_tv"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:text="Send a message to start chatting"
+        app:layout_constraintBottom_toBottomOf="@+id/chat_messages_rv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/chat_messages_rv" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chat_messages_rv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginVertical="8dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/send_message_et"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_tv"
+        tools:itemCount="5"
+        tools:listitem="@layout/layout_chat_message_item" />
+
+    <ImageView
+        android:id="@+id/send_message_iv"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:translationZ="8dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="Send Message"
+        android:src="@drawable/message_send_ic"
+        app:layout_constraintBottom_toBottomOf="@+id/send_message_et"
+        app:layout_constraintEnd_toEndOf="@+id/send_message_et"
+        app:layout_constraintTop_toTopOf="@+id/send_message_et" />
+
+    <EditText
+        android:id="@+id/send_message_et"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Type a message"
+        android:inputType="text"
+        android:maxLines="1"
+        android:paddingEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chat_messages_rv" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
